@@ -1,0 +1,1462 @@
+/* #region: Global Variables */
+
+
+/* #region: Global Colors */
+
+$commonRed: #be1c2f;
+$commonWhite: #fff;
+$commonBlack: #000;
+$commonBlue: blue;
+$commonYellow: yellow;
+$pastelSky: #22a9e3;
+$dust: #F5F5F5;
+$strongDust: #EEF0F1;
+$naviGray: #47515E;
+$silver: #C0C0C0;
+$gray: #808080;
+$lightGray: #eeeeee;
+$shortaGray: #ececec;
+$mediumGray: #A9A9A9;
+$dimGray: #696969;
+$lightDust: #F9F9F9;
+$lightRed: #FD8E8E;
+$mediumRed: #bf4d5a;
+$green: green;
+$lovingBlue: #0076FF;
+$dodgerblue: #1e90ff;
+$lightGreen: #d7edd4;
+$mediumYellow: #f0ad4e;
+$secondaryGreen: #03dac6;
+
+/* #endregion: Global Colors */
+
+
+/* #region: Global Props */
+
+$max: 100%;
+$maxWidth: 100vw;
+$maxHeight: 100vh;
+$defaultPadding: 30;
+$headerMarginLeft: 30px;
+$screenPadding: 30px;
+$defaultButtonHeigh: 40px;
+$defaultButtonFontSize: 14px;
+$titleNormalFontSize: 16px;
+$screenPaddingBottom: 20px;
+
+$fwBold: bold;
+$fw600: 600;
+$fwNormal: normal;
+
+/* #endregion: Global Props */
+
+
+/* #endregion: Global Variables */
+
+/* #region: Global Mixins */
+
+@mixin you-have-a-shadow( $h-offset: 2px, $v-offset: 4px, $color: $commonBlack, $opacity: 0.2, $radius: 5.46, $elevation: 9) {
+    box-shadow: $h-offset $v-offset $color;
+    shadowOpacity: $opacity;
+    shadowRadius: $radius;
+    elevation: $elevation;
+    overflow: visible;
+}
+
+@mixin call-a-shadow($args...) {
+    @include you-have-a-shadow($args...);
+}
+
+@mixin makeShadow($args...) {
+    @include you-have-a-shadow($args...);
+}
+
+@mixin summonShadow($args...) {
+    @include you-have-a-shadow($args...);
+}
+
+@mixin marginVertical($margin) {
+    margin-top: $margin;
+    margin-bottom: $margin;
+}
+@mixin marginTop($margin) {
+  margin-top: $margin;
+}
+@mixin marginBottom($margin) {
+  margin-bottom: $margin;
+}
+@mixin marginHorizontal($margin) {
+    margin-left: $margin;
+    margin-right: $margin;
+}
+
+@mixin paddingVertical($padding) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+
+@mixin paddingHorizontal($padding) {
+    padding-right: $padding;
+    padding-left: $padding;
+}
+
+@mixin paddingBottom($padding) {
+    padding-bottom: $padding;
+}
+@mixin paddingRight($padding) {
+    padding-right: $padding;
+}
+
+@mixin marginBottom($margin) {
+    margin-bottom: $margin;
+}
+@mixin textStyle($fs, $fw, $color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+/* #endregion: Global Mixins */
+
+
+/* #region: Global function */
+
+.blue {
+    color: $commonBlue
+}
+
+.red {
+    color: $commonRed
+}
+
+.green {
+    color: $green
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.colorWhite {
+    color: $commonWhite
+}
+
+.gray {
+    color: $gray;
+}
+
+.dimGray {
+    color: $dimGray;
+}
+
+.naviGray {
+    color: $naviGray;
+}
+.black {
+    color: $commonBlack;
+}
+.headerMarginLeft {
+    margin-left: $headerMarginLeft
+}
+
+.screenPrototype {
+    width: $max;
+    height: $max;
+    background-color: $dust;
+    overflow: visible
+}
+
+.screenPadding {
+    padding: $screenPadding
+}
+
+.screenPaddingLeft {
+    padding-left: $screenPadding
+}
+
+.screenPaddingRight {
+    padding-right: $screenPadding
+}
+
+.scrollView {
+    height: 100%
+}
+
+.backgroundView {
+    z-index: -99;
+    position: absolute;
+}
+
+.whiteBackground {
+    background-color: $commonWhite;
+}
+
+.flexRow {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.flexRowCenter {
+  flex-direction: row;
+  align-items: center;
+}
+.flexRowEnd {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+.flexContentItemsCenter {
+    justify-content: center;
+    align-items: center;
+}
+.flexColumn {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.flexSpaceAround {
+    justify-content: space-around;
+}
+.flexSpaceBetween {
+  justify-content: space-between;
+}
+.flexRowCenterReverse {
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flexEnd {
+    justify-content: flex-end;
+}
+
+.justifyContentCenter {
+    justify-content: center;
+}
+
+.justifyContentFlexStart {
+    justify-content: flex-start;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
+
+.alignItemsBaseline {
+    align-items: baseline;
+}
+.alignItemsFlexEnd {
+    align-items: flex-end;
+}
+.alignItemsFlexStart {
+    align-items: flex-start;
+}
+.stretchView {
+    width: $max;
+    height: $max;
+    padding: 0;
+    margin: 0;
+}
+
+.screenMarginLeft {
+    margin-left: $defaultPadding
+}
+
+.screenMarginRight {
+    margin-right: $defaultPadding
+}
+
+.transparentBackground {
+    background-color: transparent;
+}
+
+.grayLine {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: $silver;
+}
+
+.fixedBottomButton {
+    position: absolute;
+    padding-bottom: $defaultPadding;
+    bottom: 0;
+    background-color: $dust;
+}
+
+.capitalized {
+    text-transform: uppercase;
+}
+
+.shadowView {
+    @include summonShadow();
+}
+
+.bigRedButton {
+    width: $max;
+    height: $defaultButtonHeigh;
+    background-color: $commonRed;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    // @extend .shadowView;
+}
+.bigBlueButton {
+    width: $max;
+    height: $defaultButtonHeigh;
+    background-color: $commonBlue;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    @extend .shadowView;
+}
+.bigRedDisabledButton {
+    width: $max;
+    height: $defaultButtonHeigh;
+    background-color: $mediumRed;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    display: flex;
+    // flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    @extend .shadowView;
+}
+
+.bigRedButtonAnroid {
+    width: $max;
+    height: $defaultButtonHeigh;
+    background-color: $commonRed;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.bigGrayButton {
+    width: $max;
+    height: $defaultButtonHeigh;
+    background-color: $dimGray;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    @extend .shadowView;
+}
+.buttonTitle {
+    font-weight: bold;
+    text-align: center;
+    font-size: $defaultButtonFontSize;
+    line-height: $defaultButtonFontSize;
+}
+
+.pickerWithTitle {
+    overflow: visible;
+}
+
+.pickerWithTitle_title {
+    font-weight: bold;
+    font-size: $titleNormalFontSize;
+}
+
+.pickerStyle {
+    background-color: $commonWhite;
+    padding: 10px;
+    height: 35px;
+    margin-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 0px;
+   // margin-top: 15px;
+   // margin-bottom: 30px;
+    @include you-have-a-shadow(0px, 2px, rgba(0, 0, 0, 0.2), 0.2, 11, 9)
+}
+
+.upperline {
+    border-top-color: blackWithShade(0.3);
+    border-top-width: 0.5px;
+}
+
+.underline {
+    border-bottom-color: blackWithShade(0.3);
+    border-bottom-width: 0.5px;
+}
+
+.centerItems {
+    justify-content: center;
+    align-items: center;
+}
+
+.datePickerModal {
+    height: 206px;
+    min-height: 206px;
+    max-height: 206px;
+}
+
+.datePickerModalHeader {
+    @extend .upperline;
+    padding: 10px 30px 10px 30px;
+    background-color: transparent;
+    @extend .underline;
+}
+
+.datePickerModalHeader_text {
+    font-size: $titleNormalFontSize;
+    font-weight: 400;
+}
+
+.datePickerModalHeader_done {
+    @extend .datePickerModalHeader_text;
+    font-weight: 600;
+    color: $lovingBlue
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+.borderRadius10 {
+    border-radius: 10px;
+}
+
+.borderRadius20 {
+    border-radius: 20px;
+}
+.margin0 {
+  margin: 0;
+}
+.marginRight10 {
+    margin-right: 10px;
+}
+.marginLeft10{
+    margin-left: 10px;
+}
+.marginTop3 {
+    margin-top: 3px;
+}
+.marginTop5 {
+    margin-top: 5px;
+}
+.marginTop10 {
+    margin-top: 10px;
+}
+.marginTop15 {
+    margin-top: 15px;
+}
+.marginTop20 {
+  margin-top: 20px;
+}
+.marginTop60 {
+    margin-top: 60px;
+  }
+.marginBottom5 {
+  margin-bottom: 5px;
+}
+.marginBottom10 {
+  margin-bottom: 10px;
+}
+.marginBottom15 {
+  margin-bottom: 15px;
+}
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+.marginBottom30 {
+  margin-bottom: 30px;
+}
+.marginVertical2 {
+    @include marginVertical(2);
+}
+.marginVertical5 {
+    @include marginVertical(5);
+}
+
+.marginVertical10 {
+    @include marginVertical(10);
+}
+
+.marginVertical20 {
+    @include marginVertical(20);
+}
+
+.marginVertical30 {
+    @include marginVertical(30);
+}
+
+.marginVertical40 {
+    @include marginVertical(40);
+}
+
+.marginVertical50 {
+    @include marginVertical(50);
+}
+
+.marginHorizontal5 {
+    @include marginHorizontal(5);
+}
+
+.marginHorizontal10 {
+    @include marginHorizontal(10);
+}
+
+.marginHorizontal20 {
+    @include marginHorizontal(20);
+}
+
+.marginHorizontal30 {
+    @include marginHorizontal(30);
+}
+
+.marginHorizontal40 {
+    @include marginHorizontal(40);
+}
+
+.marginHorizontal50 {
+    @include marginHorizontal(50);
+}
+.marginBottom40 {
+    @include marginBottom(40);
+}
+.paddingVertical5 {
+    @include paddingVertical(5);
+}
+
+.paddingVertical10 {
+    @include paddingVertical(10);
+}
+
+.paddingVertical20 {
+    @include paddingVertical(20);
+}
+
+.paddingVertical30 {
+    @include paddingVertical(30);
+}
+
+.paddingVertical40 {
+    @include paddingVertical(40);
+}
+
+.paddingVertical50 {
+    @include paddingVertical(50);
+}
+
+.paddingHorizontal5 {
+    @include paddingHorizontal(5);
+}
+
+.paddingHorizontal10 {
+    @include paddingHorizontal(10);
+}
+
+.paddingHorizontal20 {
+    @include paddingHorizontal(20);
+}
+.paddingHorizontal25 {
+    @include paddingHorizontal(25);
+}
+.paddingHorizontal30 {
+    @include paddingHorizontal(30);
+}
+
+.paddingHorizontal40 {
+    @include paddingHorizontal(40);
+}
+
+.paddingHorizontal50 {
+    @include paddingHorizontal(50);
+}
+.paddingBtm20 {
+    @include paddingBottom(20);
+}
+.paddingBtm40 {
+    @include paddingBottom(40);
+}
+.paddingRight30{
+    @include paddingRight(30);
+}
+.textAlignCenter {
+    text-align: center;
+}
+
+.textAlignRight {
+    text-align: right;
+}
+.flexDirectionRow {
+  flex-direction: row;
+}
+.flexDirectionColumn {
+  flex-direction: column;
+}
+.navTabsWrapper {
+    flex: 1;
+    flex-direction: row;
+    @extend .underline;
+    border-bottom-color: $naviGray;
+    z-index: 99;
+}
+
+.navTabsTitle {
+    color: $dimGray;
+    @extend .bold;
+    text-transform: uppercase;
+    font-size: $titleNormalFontSize - 2;
+    @extend .marginVertical20;
+    margin-bottom: 15px;
+}
+
+.navTabsTitleActive {
+    color: $commonRed;
+}
+
+.navTabsIndicator {
+    width: $max;
+    background-color: $commonRed;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.classInfoModal {
+    background-color: $dust;
+}
+
+.classInfoModal_header {
+    margin-bottom: 40;
+}
+
+.screenHeader {
+    margin-left: 30px;
+    flex-direction: column;
+  }
+
+.screenTitle {
+    font-size: 26px;
+    font-weight: bold;
+    padding-left: 10px;
+    @extend .red;
+  }
+.studentName {
+    font-size: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    margin-right: 25px;
+    margin-left: 10px;
+    padding-right: 25px;
+
+}
+.attendenceCheckstudentName {
+    font-size: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 15px;
+}
+
+.appVersionWraper {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10;
+  }
+/* #endregion: Global Styles */
+
+/*#region Scores*/
+.classTitle {
+    @extend .bold;
+    font-size: $titleNormalFontSize;
+    margin-bottom: 10px;
+}
+/*#endregion*/
+/* #region: Courses Screen */
+
+.normalFilter {
+    flex-direction: row;
+    //margin-right: 15px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 20px;
+    //width: $max;
+    height: auto;
+}
+
+.filterButtonBackground {
+    width: 100px;
+    height: 35px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.scheduleGuidelineButtonBackground {
+    width: 90px;
+    height: 35px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 16px;
+}
+
+.activeFilter {
+    border-radius: 4px;
+    background-color: $shortaGray;
+    box-shadow: 0 1px 0 $silver;
+}
+
+.filterModal {
+    width: $max;
+    height: $max;
+    background-color: $dust;
+    flex: 1;
+}
+
+.scrollViewFilter {
+    padding-top: 30px;
+}
+
+.horizontalScrollBox {
+    padding-left: 22px;
+}
+
+.classesSectionTitle {
+    @extend .red;
+    @extend .bold;
+    font-size: $titleNormalFontSize - 1;
+    @extend .marginVertical10;
+}
+.itemInfoSection {
+    height: 80px;
+}
+
+.itemCardBoxShadow {
+  @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+  @extend .whiteBackground;
+  @extend .borderRadius10;
+  padding: 20px 15px;
+}
+.itemCardBox {
+    @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+    @extend .whiteBackground;
+    @extend .paddingHorizontal30;
+    @extend .paddingVertical40;
+    @extend .marginVertical20;
+    @extend .marginHorizontal10;
+    @extend .borderRadius10;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    min-width: 250px;
+    max-width: 250px;
+    // min-height: 280px;
+}
+.itemCardBoxStatusClass {
+    @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+    @extend .whiteBackground;
+    @extend .marginVertical20;
+    @extend .marginHorizontal10;
+    @extend .borderRadius10;
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.itemCardBoxLoading {
+    @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+    @extend .whiteBackground;
+    @extend .paddingHorizontal30;
+    @extend .paddingVertical40;
+    @extend .marginVertical20;
+    @extend .marginHorizontal10;
+    @extend .borderRadius10;
+    justify-content: center;
+    padding: 20px;
+    width: 240px;
+    height: 300px;
+}
+
+.itemCardBoxModal {
+    @extend .itemCardBox;
+    max-width: 100%;
+    min-height: auto;
+    @include marginHorizontal(30);
+    @include paddingVertical(20);
+    @include paddingHorizontal(25);
+    @include marginVertical(5);
+}
+.itemCardBoxModalStatusClass {
+    @extend .itemCardBoxStatusClass;
+    max-width: 100%;
+    min-height: auto;
+    @include marginHorizontal(30);
+    @include marginVertical(5);
+}
+.infoPropTitle {
+    color: $dimGray;
+    font-weight: 500;
+}
+
+.infoPropData {
+    color: $commonBlack;
+    @extend .bold;
+    @include marginVertical(15);
+    font-size: $titleNormalFontSize + 1;
+}
+.infoPropDataOnline {
+    color: $green;
+    @extend .bold;
+    @include marginVertical(15);
+    font-size: $titleNormalFontSize + 1;
+}
+
+.infoPropData_Online{
+    color: $green;
+    @extend .bold;
+    @include marginVertical(15);
+    font-size: $titleNormalFontSize + 1;
+}
+
+.classIcon {
+    background-color: rgba(245, 233, 234, 1);
+    width: 75;
+    height: 75;
+    border-radius: 75px;
+    @extend .marginVertical30;
+    margin-top: 10;
+}
+.classOnlineIcon {
+    background-color: rgba(215, 237, 212, 1);
+    width: 75;
+    height: 75;
+    border-radius: 75px;
+    @extend .marginVertical30;
+    margin-top: 10;
+}
+
+.classIconModalTitle {
+    @extend .classIcon;
+    width: 60;
+    height: 60;
+}
+.onlineClassIconModalTitle {
+    @extend .classOnlineIcon;
+    width: 60;
+    height: 60;
+    border-radius: 60px;
+}
+.rejectedClassIconModalTitle {
+    background-color: $lightGray;
+    width: 60;
+    height: 60;
+    border-radius: 60px;
+    @extend .marginVertical30;
+    margin-top: 10;
+}
+
+.classIconOnline {
+    background-color: rgba(225, 245, 225, 1);
+    width: 75;
+    height: 75;
+    border-radius: 75px;
+    @extend .marginVertical30;
+    margin-top: 10;
+}
+.rejectedClassIcon {
+    background-color: $lightGray;
+    width: 75;
+    height: 75;
+    border-radius: 75px;
+    @extend .marginVertical30;
+    margin-top: 10;
+}
+
+.classIconModalTitle_Online {
+    @extend .classIconOnline;
+    width: 60;
+    height: 60;
+}
+
+.classTitle {
+    @extend .bold;
+    font-size: $titleNormalFontSize;
+    margin-bottom: 10px;
+}
+.classDate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: $titleNormalFontSize - 4;
+  color: $dimGray;
+}
+
+.classDateModal {
+  @extend .classDate;
+  position: relative;
+}
+
+.classSchedule, .classOpeningDate {
+    color: $dimGray;
+    font-size: $titleNormalFontSize - 4;
+    margin-bottom: 5;
+}
+.classScheduleRejected {
+    color: $silver;
+    font-size: $titleNormalFontSize - 4;
+    margin-bottom: 5;
+}
+.classOpeningDay {
+    @extend .textAlignRight;
+    color: $dimGray;
+    font-size: $titleNormalFontSize - 4;
+}
+.rejectedClassOpeningDay {
+    @extend .textAlignRight;
+    color: $silver;
+    font-size: $titleNormalFontSize - 4;
+}
+.classAddress {
+    @extend .classSchedule;
+}
+.classAddressRejected {
+    @extend .classScheduleRejected;
+}
+
+.classFee {
+    @extend .bold;
+    color: $commonRed;
+    font-size: $titleNormalFontSize - 1;
+    @extend .marginVertical20;
+}
+
+.classFeeModal {
+    @extend .classFee;
+    @include marginVertical(0);
+}
+
+.classInfoScheduleSection, .classInfoReasonSection {
+    @include marginVertical(15);
+    padding-top: 10;
+    margin-bottom: 0;
+}
+
+.classInfoScheduleSectionTitle, .classInfoReasonSectionTitle {
+    @extend .bold;
+    font-size: $titleNormalFontSize + 1;
+    margin-bottom: 20;
+}
+
+.classInfoScheduleSectionItem {
+    margin-right: 30;
+    padding-top: 10;
+    padding-bottom: 10;
+}
+
+.classInfoScheduleSectionItemDate {
+    font-size: $titleNormalFontSize + 1;
+}
+
+.classInfoScheduleSectionItemTime {
+    @extend .red;
+}
+
+.ScoreIcon {
+    background-color: rgba(245, 233, 234, 1);
+    width: 65;
+    height: 65;
+    border-radius: 75px;
+    @include paddingVertical(20);
+}
+.ScoreIconGreen {
+    background-color: rgba(225, 245, 225, 1);
+    width: 65;
+    height: 65;
+    border-radius: 75px;
+    @include paddingVertical(20);
+}
+.ScoreIconDimGray {
+    background-color: rgba(236, 240, 241, 1);
+    width: 65;
+    height: 65;
+    border-radius: 75px;
+    @include paddingVertical(20);
+}
+
+
+.infoScore {
+    color: $commonBlack;
+    @extend .bold;
+    font-size: $titleNormalFontSize + 1;
+}
+.infoOverallScore {
+    color: $dimGray;
+    font-weight: 400;
+    font-size: $titleNormalFontSize - 4;
+}
+
+.classScoreRed {
+    @extend .bold;
+    color: $commonRed;
+    font-size: $titleNormalFontSize + 2;
+}
+.classScoreGreen {
+    @extend .bold;
+    color: $green;
+    font-size: $titleNormalFontSize + 2;
+}
+.classScoreDimGray {
+    @extend .bold;
+    color: $dimGray;
+    font-size: $titleNormalFontSize + 2;
+}
+
+.itemCardBoxScoreLoading {
+    @extend .itemCardBox;
+    max-width: 100%;
+    @include marginHorizontal(30);
+    @include paddingVertical(20);
+    @include paddingHorizontal(25);
+    @include marginVertical(5);
+    @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+
+}
+
+.itemCardBoxScoreModal {
+    @extend .itemCardBox;
+    max-width: 100%;
+    //@include marginHorizontal(30);
+    //@include paddingVertical(30);
+    //@include paddingHorizontal(25);
+    // @include marginVertical(5);
+    //margin-bottom: 20;
+    padding: 0;
+}
+
+.scoreMid {
+    border-color: $dimGray;
+    border-width: 0.3px;
+    border-radius: 75px;
+    margin-left: 10px;
+    @include paddingVertical(3);
+    @include paddingHorizontal(10);
+}
+
+.textMF {
+    font-size: 10px;
+    text-align: center;
+    font-weight: 300;
+}
+.classItemHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+}
+.statusBadge {
+  border-width: 0px;
+  padding: 5px 15px; 
+  border-radius: 10px 10px 0 0; 
+  
+}
+.countdownRibbon {
+  margin-bottom: 5px;
+  background-color: $lightGray;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.countdownRibbonNoBorder {
+  margin-bottom: 5px;
+  background-color: $lightGray;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+}
+.borderRadiusTop {
+  border-radius: 10px 10px 0px 0px; 
+}
+.rejectedBadge {
+  @extend .statusBadge;
+  background-color: $commonRed;
+}
+.processingBadge {
+  @extend .statusBadge;
+  background-color: $green;
+}
+.availableBadge {
+  @extend .statusBadge;
+  background-color: $lovingBlue;
+}
+.upcomingBadge {
+  @extend .statusBadge;
+  background-color: $mediumYellow;
+}
+.finishedBadge {
+  @extend .statusBadge;
+  background-color: $commonBlack;
+}
+.currentBadge {
+  @extend .statusBadge;
+  background-color: $secondaryGreen;
+}
+.attendanceCheckingBadge {
+  @extend .statusBadge;
+  background-color: $commonRed;
+}
+.textBoldWhite {
+  color: $commonWhite;
+  @extend .bold;
+}
+.textWhite {
+  color: $commonWhite;
+}
+/* #endregion: Courses Screen */
+
+
+/* #region: Schedule Screen */
+
+.agendaItem {
+    width: 120%;
+    height: auto;
+    border-width: 0px;
+    border-color: $dust;
+    margin: 20px;
+    margin-left: 0px;
+    border-radius: 15px;
+    padding: 0px;
+    @include you-have-a-shadow(2px, 4px, #000, 0.1, 9, 9)
+}
+.agendaHotLessonItem {
+    height: auto;
+    border-width: 0px;
+    //border-color: $dust;
+    //margin: 20px;
+    margin-left: 0px;
+    border-radius: 20px 0px 0px 15px;
+    padding: 0px;
+    //@include you-have-a-shadow(2px, 4px, #000, 0.1, 9, 9)
+}
+.agendaHotLessonItemButton {
+  //@include you-have-a-shadow(2px, 4px, #000, 0.1, 9, 9);
+  margin: 0px 0px 10px;
+  //padding-bottom: 20px;
+}
+.agendaAttendanceItem {
+  height: auto;
+  border-width: 0px;
+  border-color: $dust;
+  margin: 20px;
+  margin-left: 0px;
+  border-radius: 15px 0px 0px 15px;
+  padding: 0px;
+  @include you-have-a-shadow(2px, 4px, #000, 0.1, 9, 9)
+}
+
+.selectedDay {
+    background-color: $commonWhite;
+    height: 75px;
+    margin-top: -40px;
+    padding-top: 40px;
+    border-radius: 10px;
+    width: 45px;
+    @include you-have-a-shadow(2px, 5px, #000, 0.1, 6, 9);
+}
+
+.selectedDayText {
+    color: $commonRed;
+    @extend .bold;
+}
+
+.weekDayText {
+    color: $commonRed;
+    font-weight: bold;
+    margin-top: 5px
+}
+.calendarWeekDayText {
+    background-color: $dust;
+    color: rgba(190, 28, 47, 0.5);
+    height: 40px;
+    padding-top: 10px;
+    margin-top: -5px;
+    width: 40px
+}
+
+.reservationItem {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+
+.dayText {
+    color: $commonBlack;
+    font-weight: 400
+}
+
+.calendarList {
+    background-color: $dust;
+}
+
+.weekDayActiveText {
+    background-color: transparent;
+    color: $commonRed;
+}
+
+.agendaClassTime {
+    color: $commonBlack;
+    font-size: $titleNormalFontSize - 4;
+}
+.agendaClassNumber {
+  color: $commonWhite;
+  font-size: $titleNormalFontSize - 2;
+  font-weight: bold;
+}
+.agendaStartHotLesson {
+  color: $commonWhite;
+  font-size: $titleNormalFontSize - 4;
+  font-weight: bold;
+}
+.agendaClassAddress {
+  color: $commonBlack;
+  font-size: $titleNormalFontSize - 2;
+}
+
+.agendaClassName {
+    font-size: $titleNormalFontSize;
+    @extend .bold;
+    @include marginVertical(7)
+}
+
+.agendaClassIcon {
+    @extend .classIcon;
+    width: 75;
+    height: 75;
+    margin-top: 0px;
+    margin-left: 25px
+}
+.agendaOnlineClassIcon {
+    @extend .classOnlineIcon;
+    width: 75;
+    height: 75;
+    margin-top: 0px;
+    margin-left: 25px
+}
+
+.agendaNote {
+  font-size: $titleNormalFontSize - 2;
+  @include marginVertical(7);
+}
+.agendaClassSignature { 
+  background-color: $commonWhite;
+  padding: 5px 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-left: 10px;
+  width: 50px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+/* #region schedule status style*/
+/* Todo xử lý UI cho trạng thái này:
+        backgroundStatus = 1, //Lesson có status cancel (có thể do hủy hoặc bị đổi buổi)
+        backgroundStatus = 2, // Lesson chưa điểm danh
+        backgroundStatus = 4, // Lesson đã điểm danh
+        backgroundStatus = 8, // Lesson kết khóa
+        IconStatus = 0, // Lesson không có icon
+        IconStatus = 16, // Lesson có buổi thi giữa kỳ
+        IconStatus = 32, // Lesson có buổi thi cuối kỳ
+*/
+
+.cancelClass {
+    background-color: $lightGreen;
+}
+
+/* #endregion */
+
+/* #endregion: Schedule Screen */
+
+/*#region Attendance checking*/
+.infoAttendanceClass {
+  color: $commonBlack;
+  @extend .bold;
+  font-size: $titleNormalFontSize + 1;
+}
+.attendanceCheckInfoBox {
+  @extend .whiteBackground;
+  @extend .borderRadius10;
+  //padding: 10px 15px;
+}
+.itemTextAreaBoxShadow {
+  @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+  @extend .whiteBackground;
+  @extend .borderRadius10;
+  padding: 3px 8px;
+}
+.attendanceSectionTitle {
+  @extend .bold;
+    font-size: $titleNormalFontSize + 1;
+    margin-bottom: 10;
+}
+.textAreaAttendanceCheck {
+  height: 120px;
+  // justify-content: flex-start;
+  // align-items: flex-start;
+}
+.attendanceCheckRule {
+  text-align: center;
+  font-weight: bold;
+  color: $commonRed;
+  font-size: 16
+}
+/*#endregion*/
+
+/*#region Rating */
+.ratingCardWrapper {
+    @include paddingVertical(15);
+    @include paddingHorizontal(15);
+    background-color: $commonWhite;
+}
+.ratingSummaryCardWrapper{
+    @include paddingVertical(15);
+    @include paddingHorizontal(15);
+    background-color: $commonWhite;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.ratingOverallScore{
+    @include textStyle(($titleNormalFontSize * 2 + 4), $fwBold, $commonBlack);
+}
+.ratingMaxScore{
+    @include textStyle(($titleNormalFontSize - 1), $fwNormal, $gray);
+    padding-bottom: 6px;
+}
+.ratingTotalNumber{
+    @include textStyle($titleNormalFontSize - 3, $fw600, $commonBlack);
+}
+.ratingCriteriaItemWrapper{
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 2px;
+}
+.ratingCriteriaItem{
+    align-items: center;
+    justify-content: center;
+    border-width: 0.5px;
+    border-color: $silver;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 5px;
+}
+.ratingCriteriaQuestion{
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+.studentRatingCriteriaBage{
+    margin-left: 5px;
+}
+.studentRatingComment{
+    margin-top: 10px;
+}
+.ratingTutorName {
+    color: $commonBlack;
+    font-size: $titleNormalFontSize;
+    @include textStyle($titleNormalFontSize, $fwBold, $commonBlack);
+    @include marginTop(5);
+}
+.ratingMidHeader {
+    @include textStyle($titleNormalFontSize - 2, $fw600, $commonBlack);
+}
+.ratingCourseWrapper {
+    @include paddingVertical(10);
+    @include paddingHorizontal(15);
+}
+.ratingCourseName {
+    @include textStyle($titleNormalFontSize, $fwBold, $commonBlack);
+}
+.ratingCourseStatus {
+    @include textStyle($titleNormalFontSize - 2, $fwNormal, $commonRed);
+}
+.ratingCourseLabel {
+    @include textStyle($titleNormalFontSize - 4, $fwNormal, $gray);
+}
+.ratingCourseText {
+    @include textStyle($titleNormalFontSize - 2, $fw600, $commonBlack);
+}
+.ratingTutorOverall {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: $commonRed;
+    justify-content: center;
+    align-items: center;
+}
+.ratingTutorOverallText {
+    @include textStyle($titleNormalFontSize, $fwBold, $commonWhite);
+}
+.ratingStudentCard {
+    @include paddingVertical(15);
+    @include paddingHorizontal(15);
+    border-bottom-width: 0.5px;
+    border-bottom-color: #ddd;
+}
+.studentsRatingListHeader{
+    @include paddingHorizontal(15);
+    font-weight: $fwBold;
+    //color: $dimGray;
+    font-size: $titleNormalFontSize - 1;
+}
+.studentsRatingList{
+    @include paddingVertical(15);
+}
+.ratingComment{
+    @include paddingVertical(15);
+}
+/*#endregion*/
+
+/*#region Exam History*/
+.examHistoryBox{
+  @include you-have-a-shadow(2px, 8px, #000, 0.1, 8, 8);
+  background-color: $strongDust;
+  border-radius: 0px 0px 10px 10px;
+  border-top-width: 1px;
+  border-top-color: $mediumGray;
+}
+.infoScoreHistory {
+    color: $commonBlack;
+    @extend .bold;
+    font-size: $titleNormalFontSize - 1;
+}
+.scoreHistoryRow{
+    padding: 10px 0px;
+    border-top-color: $dimGray,;
+    border-top-width: 0.3px;
+}
+.examActions{
+    padding: 10px 20px;
+    background-color: $commonRed;
+}
+.examActionButtonTitle{
+    @include textStyle($titleNormalFontSize - 2, $fw600, $commonWhite);
+    text-transform: uppercase;
+    text-align: center;
+}
+.examActionHeader{
+    @include textStyle($titleNormalFontSize, $fw600, $commonBlack);
+}
+/*#endregion*/

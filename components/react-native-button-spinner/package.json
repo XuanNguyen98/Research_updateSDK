@@ -1,0 +1,73 @@
+{
+  "_from": "react-native-button-spinner",
+  "_id": "react-native-button-spinner@0.1.4",
+  "_inBundle": false,
+  "_integrity": "sha512-6TlQR1rh73OILgAWHSG4QtjLLgo4dudJ1mMoqEzgnfN4S79QRbFBO+Gowgds34Jerd1pU1IloGbcmTcM+FgERA==",
+  "_location": "/react-native-button-spinner",
+  "_phantomChildren": {
+    "fbjs": "0.8.17",
+    "loose-envify": "1.4.0"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "react-native-button-spinner",
+    "name": "react-native-button-spinner",
+    "escapedName": "react-native-button-spinner",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-button-spinner/-/react-native-button-spinner-0.1.4.tgz",
+  "_shasum": "b4bd32bd5bbfaada6cc4bc7f88c9eb45eaf0fa84",
+  "_spec": "react-native-button-spinner",
+  "_where": "/Users/neilbrex/Documents/alt-mobile-sandbox/Src/Mobile.CRM",
+  "author": {
+    "name": "Igor Rosliakov"
+  },
+  "bugs": {
+    "url": "https://github.com/sozdayka/react-native-button-spinner/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "prop-types": "15.5.10"
+  },
+  "deprecated": false,
+  "description": "This is a Javascript button indicator (spinner) plugin for react-native. Which will allow you to configure the indicator under or lock the button. So the plug-in stops the indicator after completing the function or interrupting it after a certain time.",
+  "devDependencies": {
+    "babel-jest": "22.4.4",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.4",
+    "react-test-renderer": "16.3.1"
+  },
+  "homepage": "https://github.com/sozdayka/react-native-button-spinner#readme",
+  "keywords": [
+    "react-native",
+    "react-native-button-spinner",
+    "react-native-button-loading",
+    "react-native-spinner",
+    "react-native-button",
+    "react-native button with spinner",
+    "react-native button with loader",
+    "react-native button with loading"
+  ],
+  "license": "MIT",
+  "main": "./src/index.js",
+  "name": "react-native-button-spinner",
+  "peerDependencies": {
+    "react": "^16.0.0-beta.5",
+    "react-native": "^0.49.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sozdayka/react-native-button-spinner.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.4"
+}
